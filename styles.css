@@ -1,0 +1,265 @@
+:root {
+  --bg: #f4f6f5;
+  --surface: #ffffff;
+  --surface-muted: #f5f8f6;
+  --ink: #1d2925;
+  --muted: #68766f;
+  --line: #e3e9e5;
+  --accent: #3c7565;
+  --accent-soft: #eaf3ef;
+  --tag-bg: #f0f4f1;
+  --tag-ink: #53665c;
+  --note-bg: #f0f6f3;
+  --note-ink: #43584e;
+  --error-bg: #fdf0ee;
+  --error-ink: #8a2f22;
+  --error-line: #e9b8af;
+  --shadow: 0 8px 26px rgba(24, 48, 38, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.55 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.wrap {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 36px 0 56px;
+}
+
+/* ---------- Typography ---------- */
+
+header {
+  margin-bottom: 26px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 5px 0 4px;
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.08;
+}
+
+h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin: 0 0 7px;
+  font-size: 16px;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ---------- Layout ---------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(250px, 0.8fr);
+  gap: 18px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* ---------- Components ---------- */
+
+.pill {
+  white-space: nowrap;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 99px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--tag-bg);
+  border-radius: 7px;
+  padding: 3px 7px;
+  font-size: 12px;
+  color: var(--tag-ink);
+}
+
+.note {
+  background: var(--note-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 14px;
+  color: var(--note-ink);
+}
+
+.caution {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.load-error {
+  background: var(--error-bg);
+  border: 1px solid var(--error-line);
+  border-radius: 12px;
+  color: var(--error-ink);
+  padding: 12px 14px;
+  margin: 0 0 18px;
+  font-weight: 600;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.stat {
+  background: var(--surface-muted);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.stat b {
+  display: block;
+  font-size: 20px;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.list-row:last-child {
+  border-bottom: 0;
+}
+
+/* ---------- Workout table ---------- */
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 540px;
+}
+
+th {
+  text-align: left;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+th,
+td {
+  padding: 11px 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ---------- Exercise notes ---------- */
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.exercise {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.exercise p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 9px;
+}
+
+footer {
+  margin-top: 8px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ---------- Responsive & print ---------- */
+
+@media (max-width: 760px) {
+  .layout,
+  .exercise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .wrap {
+    width: 100%;
+    padding: 0;
+  }
+
+  .card {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}

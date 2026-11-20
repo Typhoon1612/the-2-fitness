@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A private workout plan for two." />
+    <title>Our Fitness | Workout Plan</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- defer keeps execution order: data.js must define FITNESS_CONTENT before app.js reads it. -->
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <div class="eyebrow">Private fitness space · For two</div>
+        <h1>Our Fitness</h1>
+        <p class="muted">A shared place for our workout plan and weekly routine.</p>
+      </header>
+
+      <p id="loadError" class="load-error" role="alert" hidden></p>
+      <noscript>
+        <p class="load-error">JavaScript is turned off, so the workout plan cannot be shown.</p>
+      </noscript>
+
+      <div class="layout">
+        <div>
+          <section class="card" aria-labelledby="planATitle">
+            <div class="card-head">
+              <div>
+                <h2 id="planATitle">Plan A</h2>
+                <p id="planASummary" class="muted"></p>
+              </div>
+              <span class="pill">Main workout</span>
+            </div>
+            <div id="planAStats" class="stats"></div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Exercise</th>
+                    <th scope="col">Sets</th>
+                    <th scope="col">Reps / Time</th>
+                    <th scope="col">Focus</th>
+                  </tr>
+                </thead>
+                <tbody id="workoutRows"></tbody>
+              </table>
+            </div>
+            <div class="note">
+              <strong>Training reminders</strong><br />
+              Start with manageable weights and prioritize technique. Rest around 60–120 seconds
+              between strength sets. During Hollow Body Hold, keep the lower back gently pressed
+              into the mat. Raise the legs higher or bend the knees if the back arches.
+            </div>
+          </section>
+
+          <section class="card" aria-labelledby="exerciseNotesTitle">
+            <div class="card-head">
+              <div>
+                <h2 id="exerciseNotesTitle">Exercise Notes</h2>
+                <p class="muted">Short technique reminders for each movement.</p>
+              </div>
+            </div>
+            <div id="exerciseNotes" class="exercise-grid"></div>
+          </section>
+        </div>
+
+        <aside>
+          <section class="card" aria-labelledby="planBTitle">
+            <div class="card-head">
+              <div>
+                <h2 id="planBTitle">Plan B</h2>
+                <p id="planBSummary" class="muted"></p>
+              </div>
+              <span id="planBDuration" class="pill"></span>
+            </div>
+            <div id="planBDetails"></div>
+            <p id="planBGuidance" class="muted"></p>
+          </section>
+
+          <section class="card" aria-labelledby="scheduleTitle">
+            <h2 id="scheduleTitle">Weekly Schedule</h2>
+            <p class="muted">Current shared weekly routine.</p>
+            <div id="weeklySchedule"></div>
+          </section>
+
+          <section class="card" aria-labelledby="prioritiesTitle">
+            <h2 id="prioritiesTitle">Training Priorities</h2>
+            <p class="muted">
+              Keep the routine sustainable. Good technique and consistency matter more than rushing
+              to increase weights.
+            </p>
+            <div class="note">
+              For the first two weeks, use 2 sets for weighted movements if needed. Rest 60–120
+              seconds between sets. If the treadmill leaves your legs tired, rest before squats and
+              deadlifts.
+            </div>
+            <p class="muted caution">
+              Core training can support pelvic control, but no single exercise guarantees correction
+              of anterior pelvic tilt. Stop if you feel sharp pain, dizziness or unusual symptoms.
+            </p>
+          </section>
+        </aside>
+      </div>
+
+      <footer>Private fitness website · Content is updated by editing data.js.</footer>
+    </main>
+  </body>
+</html>
